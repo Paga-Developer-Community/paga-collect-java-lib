@@ -17,18 +17,18 @@ public class ApiConnection {
     /**
      *
      * @param requestBody
-     * @param pattern
+     * @param hashParams
      * @param requestPath
      * @param principal
      * @param credentials
      * @return
      */
-    public JSONObject connectAndPost(RequestBody requestBody, StringBuilder pattern, String requestPath,
+    public JSONObject connectAndPost(RequestBody requestBody, StringBuilder hashParams, String requestPath,
                                      String principal, String credentials) {
         UtilService utilService = new UtilService();
         String respString = "";
         JSONObject jsonObject = null;
-        String hash = utilService.hashComputeHash(pattern);
+        String hash = utilService.hashComputeHash(hashParams);
         System.out.println(hash);
 
         Request request = buildRequest(requestPath, hash, requestBody, principal, credentials);
