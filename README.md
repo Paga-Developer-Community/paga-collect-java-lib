@@ -7,10 +7,11 @@ Download the [jar](https://github.com/zubairAbubakar/paga-collect-java-lib/blob/
 If you are using build file such as Maven or Gradle, follow the process below,
 
 Step 1. add the downloaded jar to .m2 directory
-- path .m2/repository/com/paga/api/library/collect/1.0.0
+```shell
+- path .m2/repository/com/pagatech/collect-lib/1.0.0/
+```
 
 Step 2. Add the dependency to your pom.xml or build.gradle file.
-
 <br>
 
 ### Maven
