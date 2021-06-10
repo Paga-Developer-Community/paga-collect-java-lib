@@ -4,8 +4,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.paga.api.library.collect</groupId>
-    <artifactId>paga-collect-java-lib</artifactId>
+    <groupId>com.pagatech</groupId>
+    <artifactId>collect-lib</artifactId>
+    <packaging>jar</packaging>
     <version>1.0.0</version>
     <build>
         <plugins>

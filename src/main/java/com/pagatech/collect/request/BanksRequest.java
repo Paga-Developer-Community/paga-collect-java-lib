@@ -1,4 +1,4 @@
-package com.paga.api.library.collect.request;
+package com.pagatech.collect.request;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -6,9 +6,8 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
 @Data
-@EqualsAndHashCode(callSuper=false)
 @SuperBuilder
+@EqualsAndHashCode(callSuper=false)
 @NoArgsConstructor
-public class StatusRequest extends Request {
-
+public class BanksRequest extends Request {
 }

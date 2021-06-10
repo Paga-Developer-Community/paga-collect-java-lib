@@ -1,6 +1,6 @@
-package com.paga.api.library.collect.core;
+package com.pagatech.collect.core;
 
-import com.paga.api.library.collect.util.UtilService;
+import com.pagatech.collect.util.UtilService;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;

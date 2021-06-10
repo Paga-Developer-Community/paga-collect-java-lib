@@ -1,4 +1,4 @@
-package com.paga.api.library.collect.request;
+package com.pagatech.collect.request;
 
 import lombok.Builder;
 import lombok.Data;

@@ -1,4 +1,4 @@
-package com.paga.api.library.collect.response;
+package com.pagatech.collect.response;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;

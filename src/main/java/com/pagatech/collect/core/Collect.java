@@ -1,15 +1,18 @@
-package com.paga.api.library.collect.core;
+package com.pagatech.collect.core;
 
 import com.google.gson.Gson;
-import com.paga.api.library.collect.request.*;
-import com.paga.api.library.collect.response.*;
-import com.paga.api.library.collect.util.Constants;;
-import okhttp3.*;
+import com.pagatech.collect.request.*;
+import com.pagatech.collect.response.*;
+import com.pagatech.collect.util.Constants;
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
+
+;
 
 public class Collect {
 

@@ -1,18 +1,14 @@
-package com.paga.api.library.collect.response;
+package com.pagatech.collect.request;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
-import javax.validation.constraints.NotNull;
-
 @Data
 @EqualsAndHashCode(callSuper=false)
 @SuperBuilder
 @NoArgsConstructor
-public class StatusResponse extends Response {
+public class StatusRequest extends Request {
 
-    @NotNull
-    Response data;
 }

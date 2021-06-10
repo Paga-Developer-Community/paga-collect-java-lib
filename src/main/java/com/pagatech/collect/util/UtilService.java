@@ -1,4 +1,4 @@
-package com.paga.api.library.collect.util;
+package com.pagatech.collect.util;
 
 import java.nio.charset.Charset;
 import java.security.MessageDigest;
