@@ -8,7 +8,7 @@ If you are using a build process such as Maven or Gradle, follow the process bel
 
 Step 1. Extract and add the downloaded package to ~/.m2 directory
 ```shell
-- path .m2/repository/com/pagatech/collect-lib/1.0.0/
+- path ~/.m2/repository/com/pagatech/collect-lib/1.0.0/
 ```
 
 Step 2. Add the dependency to your pom.xml or build.gradle file.
