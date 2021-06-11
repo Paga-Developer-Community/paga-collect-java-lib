@@ -2,11 +2,11 @@
 The Paga Collect API allows anyone to initiate a payment request to a third party and automatically get notified when the payment request is fulfilled. This library makes it easier and faster for developers to integrate the API
 
 ### 1. Installation
-Download the [jar](https://github.com/zubairAbubakar/paga-collect-java-lib/blob/main/src/main/resources/collect-lib-1.0.0.jar) to your project
+Download the [jar](https://github.com/zubairAbubakar/paga-collect-java-lib/blob/main/src/main/resources/pagatech.zip) and install in your project
 
-If you are using build file such as Maven or Gradle, follow the process below,
+If you are using a build process such as Maven or Gradle, follow the process below,
 
-Step 1. add the downloaded jar to .m2 directory
+Step 1. Extract and add the downloaded package to ~/.m2 directory
 ```shell
 - path .m2/repository/com/pagatech/collect-lib/1.0.0/
 ```
