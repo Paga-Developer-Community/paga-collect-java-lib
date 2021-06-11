@@ -40,7 +40,7 @@ repositories {
 }
 
 dependencies {
-    compile(group: 'com.pagatech', name: 'collect-lb', version: '1.0.0')
+    compile(group: 'com.pagatech', name: 'collect-lib', version: '1.0.0')
 
 }
 ```
