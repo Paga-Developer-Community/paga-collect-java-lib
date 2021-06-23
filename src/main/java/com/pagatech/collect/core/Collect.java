@@ -55,11 +55,16 @@ public class Collect {
             requestParams.put("financialIdentificationNumber", registerPersistentPaymentAccountRequest.getFinancialIdentificationNumber());
             requestParams.put("accountReference", registerPersistentPaymentAccountRequest.getAccountReference());
             requestParams.put("email", registerPersistentPaymentAccountRequest.getEmail());
-            requestParams.put("creditBankId", registerPersistentPaymentAccountRequest.getCreditBankId());
-            requestParams.put("creditBankAccountNumber", registerPersistentPaymentAccountRequest.getCreditBankAccountNumber());
-            requestParams.put("callbackUrl", registerPersistentPaymentAccountRequest.getCallbackUrl());
 
-            System.out.println("Persistent Account request object :: " + requestParams);
+            if(registerPersistentPaymentAccountRequest.getCreditBankId() != null)
+                requestParams.put("creditBankId", registerPersistentPaymentAccountRequest.getCreditBankId());
+
+            if(registerPersistentPaymentAccountRequest.getCreditBankAccountNumber() != null)
+                requestParams.put("creditBankAccountNumber", registerPersistentPaymentAccountRequest.getCreditBankAccountNumber());
+
+            if(registerPersistentPaymentAccountRequest.getCallbackUrl() != null)
+                requestParams.put("callbackUrl", registerPersistentPaymentAccountRequest.getCallbackUrl());
+
         }catch (JSONException jsonException){
             jsonException.printStackTrace();
         }
@@ -68,9 +73,16 @@ public class Collect {
         hashParams.append(registerPersistentPaymentAccountRequest.getReferenceNumber());
         hashParams.append(registerPersistentPaymentAccountRequest.getAccountReference());
         hashParams.append(registerPersistentPaymentAccountRequest.getFinancialIdentificationNumber());
-        hashParams.append(registerPersistentPaymentAccountRequest.getCreditBankId());
-        hashParams.append(registerPersistentPaymentAccountRequest.getCreditBankAccountNumber());
-        hashParams.append(registerPersistentPaymentAccountRequest.getCallbackUrl());
+
+        if(registerPersistentPaymentAccountRequest.getCreditBankId() != null)
+            hashParams.append(registerPersistentPaymentAccountRequest.getCreditBankId());
+
+        if(registerPersistentPaymentAccountRequest.getCreditBankAccountNumber() != null)
+            hashParams.append(registerPersistentPaymentAccountRequest.getCreditBankAccountNumber());
+
+        if(registerPersistentPaymentAccountRequest.getCallbackUrl() != null)
+            hashParams.append(registerPersistentPaymentAccountRequest.getCallbackUrl());
+
         hashParams.append(this.apiKey);
 
         RequestBody requestBody = RequestBody.create(JSON, requestParams.toString());

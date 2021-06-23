@@ -29,7 +29,6 @@ public class ApiConnection {
         String respString = "";
         JSONObject jsonObject = null;
         String hash = utilService.hashComputeHash(hashParams);
-        System.out.println(hash);
 
         Request request = buildRequest(requestPath, hash, requestBody, principal, credentials);
 
@@ -44,8 +43,6 @@ public class ApiConnection {
             System.out.println(response);
 
             jsonObject = new JSONObject(respString);
-
-            System.out.println("::" + respString);
 
             return jsonObject;
         } catch (Exception e) {
@@ -71,7 +68,6 @@ public class ApiConnection {
      */
     private Request buildRequest(String requestPath, String hash, RequestBody body, String principal, String credential) {
 
-        System.out.println("about to build request");
         return new Request.Builder()
                 .url(requestPath)
                 .header("Content-Type", "application/json")
