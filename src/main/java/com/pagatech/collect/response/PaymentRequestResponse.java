@@ -7,6 +7,7 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
@@ -14,10 +15,9 @@ import java.util.Objects;
 
 @Data
 @EqualsAndHashCode(callSuper=false)
-@SuperBuilder
-@NoArgsConstructor
+@SuperBuilder(toBuilder = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class PaymentRequestResponse extends Response {
+public class PaymentRequestResponse  {
 
     /*
         The payment amount requested
@@ -46,6 +46,14 @@ public class PaymentRequestResponse extends Response {
     private Boolean isPayerPagaAccountHolder;
 
     private String note;
+
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @NotNull
+    private String referenceNumber;
+
+    @NotNull
+    private String statusCode;
+    private String statusMessage;
 
     @Data
     @AllArgsConstructor
