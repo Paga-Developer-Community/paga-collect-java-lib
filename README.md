@@ -2,13 +2,13 @@
 The Paga Collect API allows anyone to initiate a payment request to a third party and automatically get notified when the payment request is fulfilled. This library makes it easier and faster for developers to integrate the API
 
 ### 1. Installation
-Download the [jar](https://github.com/zubairAbubakar/paga-collect-java-lib/blob/main/src/main/resources/pagatech.zip) and install in your project
+Download the [jar](paga-collect-lib.zip) and install in your project
 
 If you are using a build process such as Maven or Gradle, follow the process below,
 
 Step 1. Extract and add the downloaded package to ~/.m2 directory
 ```shell
-- path ~/.m2/repository/com/pagatech/collect-lib/1.0.0/
+- path ~/.m2/repository/com/pagatech/collect-lib/1.0.1/
 ```
 
 Step 2. Add the dependency to your pom.xml or build.gradle file.
@@ -23,7 +23,7 @@ Then add the Paga Business client dependency under your dependencies
        <dependency>
             <groupId>com.pagatech</groupId>
             <artifactId>collect-lib</artifactId>
-            <version>1.0.0</version>
+            <version>1.0.1</version>
        </dependency>
 </dependencies>
 ```
@@ -40,7 +40,7 @@ repositories {
 }
 
 dependencies {
-    compile(group: 'com.pagatech', name: 'collect-lib', version: '1.0.0')
+    compile(group: 'com.pagatech', name: 'collect-lib', version: '1.0.1')
 
 }
 ```
@@ -185,3 +185,60 @@ BanksResponse banks = collect.getBanks(BanksRequest.builder()
 System.out.println(banks.toString());
 ```
 
+#### Get Persistent Payment Account
+Query the properties associated with an existing persistent payment account.
+<br>
+See sample code below:
+```sh
+GetPersistentPaymentAccountResponse getPersistentPaymentAccountResponse = collect.getPersistentPaymentAccount(
+        GetPersistentPaymentAccountRequest.builder()
+        .referenceNumber("293030102302213")
+        .accountIdentifier("0798822314")
+        .build());
+        System.out.println(getPersistentPaymentAccountResponse.toString());
+```
+
+
+#### Update Persistent Payment Account
+This end-point can be used to either cancel or initiate a refund if we were unable to fulfill the request for one reason or the other.
+<br>
+See sample code below:
+```sh
+        UpdatePersistentPaymentAccountResponse updatePersistentPaymentAccountResponse = collect.updatePersistentPaymentAccount(
+                UpdatePersistentPaymentAccountRequest.builder()
+                .referenceNumber("9238383939393839")
+                .accountIdentifier("0798822314")
+                .accountName("Joe Manchin")
+                .build());
+
+        System.out.println(updatePersistentPaymentAccountResponse.toString());
+```
+
+#### Delete Persistent Payment Account
+This endpoint allows for deleting a persistent payment account.
+<br>
+See sample code below:
+```sh
+        DeletePersistentPaymentAccountResponse deletePersistentPaymentAccountResponse = collect.deletePersistentPaymentAccount(
+                DeletePersistentPaymentAccountRequest.builder()
+                        .referenceNumber("1223243244")
+                        .accountIdentifier("13429424242")
+                        .reason("Duplicate account")
+                        .build());
+        System.out.println(deletePersistentPaymentAccountResponse.toString());
+```
+
+
+#### Payment Request Refund 
+This endpoint allows for deleting a persistent payment account.
+<br>
+See sample code below:
+```sh
+        RefundPaymentResponse refundPaymentResponse = collect.refund(
+                RefundPaymentRequest.builder()
+                        .referenceNumber("132131232")
+                        .refundAmount("123")
+                        .reason("no particular reason")
+                        .build());
+        System.out.println(refundPaymentResponse.toString());
+```
