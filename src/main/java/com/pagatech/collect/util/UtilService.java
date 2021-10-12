@@ -1,6 +1,7 @@
 package com.pagatech.collect.util;
 
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
@@ -9,7 +10,7 @@ public class UtilService {
     private static String hashSHA512(String message) throws NoSuchAlgorithmException {
 
         MessageDigest messageDigest = MessageDigest.getInstance("SHA-512");
-        messageDigest.update(message.getBytes(Charset.forName("UTF-8")));
+        messageDigest.update(message.getBytes(StandardCharsets.UTF_8));
         byte[] echoData = messageDigest.digest();
         String out;
         StringBuilder sb = new StringBuilder();
