@@ -9,6 +9,7 @@ import org.json.JSONObject;
 import org.codehaus.plexus.util.Base64;
 
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.concurrent.TimeUnit;
 
 
@@ -67,7 +68,6 @@ public class ApiConnection {
      * @return
      */
     private Request buildRequest(String requestPath, String hash, RequestBody body, String principal, String credential) {
-
         return new Request.Builder()
                 .url(requestPath)
                 .header("Content-Type", "application/json")
@@ -89,7 +89,6 @@ public class ApiConnection {
         String auth = principal + ":" + credential;
         byte[] encodedAuth = Base64.encodeBase64(auth.getBytes(Charset.forName("US-ASCII")) );
         String authHeader = "Basic " + new String( encodedAuth );
-
         return authHeader;
     }
 
