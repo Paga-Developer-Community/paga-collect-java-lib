@@ -200,7 +200,7 @@ GetPersistentPaymentAccountResponse getPersistentPaymentAccountResponse = collec
 
 
 #### Update Persistent Payment Account
-This end-point can be used to either cancel or initiate a refund if we were unable to fulfill the request for one reason or the other.
+This endpoint allows for changing any of the account properties except the accountNumber (NUBAN) and the accounReference properties which cannot be changed.
 <br>
 See sample code below:
 ```sh
@@ -230,7 +230,7 @@ See sample code below:
 
 
 #### Payment Request Refund 
-This endpoint allows for deleting a persistent payment account.
+This end-point can be used to either cancel or initiate a refund if we were unable to fulfill the request for one reason or the other.
 <br>
 See sample code below:
 ```sh
