@@ -1,0 +1,78 @@
+apply plugin: 'maven-publish'
+apply plugin: 'signing'
+
+task collectSourcesJar(type: Jar) {
+    archiveClassifier.set('sources')
+
+    from sourceSets.main.java.srcDirs
+}
+
+artifacts {
+    archives collectSourcesJar
+}
+
+
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                // The coordinates of the library, being set from variables that
+                // we'll set up later
+                groupId PUBLISH_GROUP_ID
+                artifactId PUBLISH_ARTIFACT_ID
+                version PUBLISH_VERSION
+
+                from components.java
+
+                artifact collectSourcesJar
+
+                // Mostly self-explanatory metadata
+                pom {
+                    name = PUBLISH_ARTIFACT_ID
+                    description = 'Paga Collect Api Java Lib'
+                    url = 'https://github.com/Paga-Developer-Community/paga-collect-java-lib'
+                    licenses {
+                        license {
+                            name = 'MIT License'
+                            url = 'https://github.com/Paga-Developer-Community/paga-collect-java-lib/blob/main/LICENSE.txt'
+                        }
+                    }
+                    developers {
+                        developer {
+                          id = 'zubairAbubakar'
+                          name = 'Zubair Abubakar'
+                          email = 'platform@paga.com'
+                        }
+                        developer {
+                          id = 'nnamdi16'
+                          name = 'Nwabuokei Nnamdi'
+                          email = 'platform@paga.com'
+                        }
+                        // Add all other devs here...
+                    }
+
+                    // Version control info - if you're using GitHub, follow the 
+                    // format as seen here
+                    scm {
+                        connection = 'scm:git:github.com/Paga-Developer-Community/paga-collect-java-lib.git'
+                        developerConnection = 'scm:git:ssh://github.com/Paga-Developer-Community/paga-collect-java-lib.git'
+                        url = 'https://github.com/Paga-Developer-Community/paga-collect-java-lib/tree/main'
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+signing {
+    /*useInMemoryPgpKeys(
+            rootProject.ext["signing.keyId"],
+            rootProject.ext["signing.key"],
+            rootProject.ext["signing.password"],
+    )*/
+
+    useInMemoryPgpKeys(rootProject.ext["signing.key"], rootProject.ext["signing.password"])
+    
+    sign publishing.publications
+}
