@@ -7,6 +7,11 @@ task collectSourcesJar(type: Jar) {
     from sourceSets.main.java.srcDirs
 }
 
+task javadocJar(type: Jar) {
+    from javadoc
+    classifier = 'javadoc'
+}
+
 artifacts {
     archives collectSourcesJar
 }
@@ -25,6 +30,7 @@ afterEvaluate {
                 from components.java
 
                 artifact collectSourcesJar
+                artifact javadocJar
 
                 // Mostly self-explanatory metadata
                 pom {

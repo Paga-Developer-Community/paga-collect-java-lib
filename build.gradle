@@ -44,7 +44,7 @@ dependencies {
 	implementation "javax.validation:validation-api:2.0.0.Final"
 	implementation "org.json:json:20160810"
 	implementation "com.google.code.gson:gson:2.8.5"
-	implementation "com.squareup.okhttp3:okhttp:3.4.1"
+	implementation "com.squareup.okhttp3:okhttp:4.9.3"
 	implementation "commons-codec:commons-codec:1.9"
 	implementation "com.fasterxml.jackson.core:jackson-annotations:2.9.0"
 	implementation "org.codehaus.plexus:plexus-utils:3.3.0"
