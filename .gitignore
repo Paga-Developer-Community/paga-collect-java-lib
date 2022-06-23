@@ -4,3 +4,8 @@
 .DS_Store
 
 target
+gradle/
+.gradle/
+gradlew
+gradlew.bat
+build/
