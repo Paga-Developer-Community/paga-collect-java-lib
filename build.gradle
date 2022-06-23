@@ -1,11 +1,7 @@
 plugins {
-	id 'java'
-	id "io.freefair.lombok" version "6.4.3"
-	id("io.github.gradle-nexus.publish-plugin") version "1.1.0"
-}
-
-wrapper {
-	gradleVersion = '7.4.2'
+    id 'java-library'
+    id "io.freefair.lombok" version "6.4.3"
+    id("io.github.gradle-nexus.publish-plugin") version "1.1.0"
 }
 
 ext {
@@ -20,38 +16,31 @@ version = PUBLISH_VERSION
 sourceCompatibility = '8'
 
 repositories {
-
-	mavenLocal()
-
-	mavenCentral()
-}
-
-sourceSets {
-	main {
-		java {
-			srcDirs = ['src/main/java']
-		}
-		resources {
-			srcDirs = ['src/main/resources']
-		}
-	}
+    mavenLocal()
+    mavenCentral()
 }
 
 dependencies {
-	
-	implementation "org.projectlombok:lombok:1.18.4"
-	implementation "com.vaadin.external.google:android-json:0.0.20131108.vaadin1"
-	implementation "javax.validation:validation-api:2.0.0.Final"
-	implementation "org.json:json:20160810"
-	implementation "com.google.code.gson:gson:2.8.5"
-	implementation "com.squareup.okhttp3:okhttp:4.9.3"
-	implementation "commons-codec:commons-codec:1.9"
-	implementation "com.fasterxml.jackson.core:jackson-annotations:2.9.0"
-	implementation "org.codehaus.plexus:plexus-utils:3.3.0"
-	implementation "com.fasterxml.jackson.core:jackson-databind:2.12.3"
-	implementation "com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.12.3"
-
+    implementation "org.projectlombok:lombok:1.18.4"
+    implementation "com.vaadin.external.google:android-json:0.0.20131108.vaadin1"
+    implementation "javax.validation:validation-api:2.0.0.Final"
+    implementation "org.json:json:20160810"
+    implementation "com.google.code.gson:gson:2.8.5"
+    implementation "com.squareup.okhttp3:okhttp:4.9.3"
+    implementation "commons-codec:commons-codec:1.9"
+    implementation "com.fasterxml.jackson.core:jackson-annotations:2.9.0"
+    implementation "org.codehaus.plexus:plexus-utils:3.3.0"
+    implementation "com.fasterxml.jackson.core:jackson-databind:2.12.3"
+    implementation "com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.12.3"
 }
 
-apply from: "${rootDir}/scripts/publish-root.gradle"
-apply from: "${rootDir}/scripts/publish-module.gradle"
+
+task fatJar(type:Jar){
+//    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    from {
+        configurations.runtimeClasspath.findAll { it.name.endsWith('jar') }.collect { zipTree(it) }
+    }
+    with jar
+}
+//apply from: "${rootDir}/scripts/publish-root.gradle"
+//apply from: "${rootDir}/scripts/publish-module.gradle"
