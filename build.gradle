@@ -8,6 +8,7 @@ wrapper {
 	gradleVersion = '7.4.2'
 }
 
+
 ext {
     PUBLISH_GROUP_ID = 'com.pagatech'
     PUBLISH_VERSION = '1.0.1'
