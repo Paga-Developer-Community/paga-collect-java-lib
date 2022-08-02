@@ -34,13 +34,13 @@ dependencies {
     implementation "com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.12.3"
 }
 
-
 task fatJar(type:Jar){
-//    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
     from {
         configurations.runtimeClasspath.findAll { it.name.endsWith('jar') }.collect { zipTree(it) }
     }
     with jar
 }
-//apply from: "${rootDir}/scripts/publish-root.gradle"
-//apply from: "${rootDir}/scripts/publish-module.gradle"
+
+apply from: "${rootDir}/scripts/publish-root.gradle"
+apply from: "${rootDir}/scripts/publish-module.gradle"
