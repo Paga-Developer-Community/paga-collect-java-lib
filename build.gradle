@@ -38,7 +38,7 @@ sourceSets {
 }
 
 dependencies {
-	
+
 	implementation "org.projectlombok:lombok:1.18.4"
 	implementation "com.vaadin.external.google:android-json:0.0.20131108.vaadin1"
 	implementation "javax.validation:validation-api:2.0.0.Final"
@@ -51,6 +51,13 @@ dependencies {
 	implementation "com.fasterxml.jackson.core:jackson-databind:2.13.3"
 	implementation "com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.13.3"
 
+}
+task fatJar(type:Jar){
+	    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+	from {
+		configurations.runtimeClasspath.findAll { it.name.endsWith('jar') }.collect { zipTree(it) }
+	}
+	with jar
 }
 
 apply from: "${rootDir}/scripts/publish-root.gradle"
