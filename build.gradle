@@ -1,7 +1,12 @@
 plugins {
-    id 'java-library'
-    id "io.freefair.lombok" version "6.4.3"
-    id("io.github.gradle-nexus.publish-plugin") version "1.1.0"
+	id "java"
+	id "io.freefair.lombok" version "6.4.3"
+	id("io.github.gradle-nexus.publish-plugin") version "1.1.0"
+}
+
+wrapper {
+	gradleVersion = '7.4.2'
+
 }
 
 
